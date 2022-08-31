@@ -1,0 +1,197 @@
+//# Description: Basically this script is an expansion of secrets script to launch all 3 clients plus your trader, however you can insert your password for each client specifically and it will attempt to log into each, and lastly log //# //# into your trader with its own unique hotkey. It will also Relaunch your trader, or redefine an existing iterative client name as your trader which cna be accessed with a hotkey with modifier. 
+//# Launch Controls
+//# Ctrl F12: Launch 3 clients and trader
+//# Ctrl F11: Check if trader client is present, if it is, switch to it, if not check for client4 window, if that exists, define it as your trader so that it can be referenced by the trader hotkey
+//# Window Controls
+//# Num 1: Toon 1
+//# Num 2: Toon 2
+//# Num 3: Toon 3
+//# Lctrl Shift 1: Trader
+
+<Hotkey Lctrl F12>
+<SendPC local>
+
+//########################
+// Launch Toon1
+//########################
+
+	<Run ".\eqgame.exe">
+		<Wait 5000>
+		<Key Tab>
+		<Key Enter>
+		<Wait 2000>
+		<Key Enter>
+		<Wait 2000>
+		<Key LShift Tab>
+		<KeyDown Backspace>
+		<Wait 5000>
+		<KeyUp Backspace>
+		<Text YOURFREAKINGUSERNAME>
+		<Wait 1000>
+		<Key Tab>
+		<Wait 1000>
+		<Text DAPASSWOID>
+		<Key Enter>
+		<Wait 1000>
+		<Key Enter>
+		<Wait 7000>
+		<Key Enter>
+		<Wait 2000>
+
+//########################
+// Launch Toon2
+//########################
+
+	<Run ".\eqgame.exe">
+		<Wait 5000>
+		<Key Tab>
+		<Key Enter>
+		<Wait 2000>
+		<Key Enter>
+		<Wait 2000>
+		<Key LShift Tab>
+		<KeyDown Backspace>
+		<Wait 5000>
+		<KeyUp Backspace>
+		<Text YOURFREAKINGUSERNAME>
+		<Wait 1000>
+		<Key Tab>
+		<Wait 1000>
+		<Text DAPASSWOID>
+		<Key Enter>
+		<Wait 1000>
+		<Key Enter>
+		<Wait 7000>
+		<Key Down>
+		<Wait 1000>
+		<Key Enter>
+		<Wait 2000>
+
+//########################
+// Launch Toon3
+//########################
+
+	<Run ".\eqgame.exe">
+		<Wait 5000>
+		<Key Tab>
+		<Key Enter>
+		<Wait 2000>
+		<Key Enter>
+		<Wait 2000>
+		<Key LShift Tab>
+		<KeyDown Backspace>
+		<Wait 5000>
+		<KeyUp Backspace>
+		<Text YOURFREAKINGUSERNAME>
+		<Wait 1000>
+		<Key Tab>
+		<Wait 1000>
+		<Text DAPASSWOID>
+		<Key Enter>
+		<Wait 1000>
+		<Key Enter>
+		<Wait 7000>
+		<Key Enter>
+		<Wait 2000>
+
+//########################
+// Launch Trader
+//########################
+
+	<Run ".\eqgame.exe">
+		<Wait 5000>
+		<Key Tab>
+		<Key Enter>
+		<Wait 2000>
+		<Key Enter>
+		<Wait 2000>
+		<Key LShift Tab>
+		<KeyDown Backspace>
+		<Wait 5000>
+		<KeyUp Backspace>
+		<Text YOURFREAKINGUSERNAME>
+		<Wait 1000>
+		<Key Tab>
+		<Wait 1000>
+		<Text DAPASSWOID>
+		<Key Enter>
+		<Wait 1000>
+		<Key Enter>
+		<Wait 7000>
+		<Key Enter>
+		<Wait 2000>
+		<RenameWin "Client4" "Trader">
+
+
+	
+	
+//#############################
+//Window Switch Keys
+
+<Hotkey Numpad1; NumpadEnd>
+	<If WinExists "Client1">
+		<TargetWin "Client1">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<else>
+	<endif>
+
+
+<Hotkey Numpad2; NumpadDown>
+	<If WinExists "Client2">
+		<TargetWin "Client2">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<else>
+	<endif>
+
+<Hotkey Numpad3; NumpadPgDn>
+	<If WinExists "Client3">
+		<TargetWin "Client3">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<else>
+	<endif>
+
+<Hotkey Lctrl Lshift 1>
+	<If WinExists "Trader">
+		<TargetWin "Trader">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<else>
+	<endif>
+
+          
+<Hotkey Lctrl F11>
+	<If WinExists "Trader">
+		<TargetWin "Trader">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<Else If Winexists "Client4">
+		<RenameWin "Client4" "Trader">
+	<else>
+		<Run ".\eqgame.exe">
+		<Wait 5000>
+		<Key Tab>
+		<Key Enter>
+		<Wait 2000>
+		<Key Enter>
+		<Wait 2000>
+		<Key LShift Tab>
+		<KeyDown Backspace>
+		<Wait 5000>
+		<KeyUp Backspace>
+		<Text YOURFREAKINGUSERNAME>
+		<Wait 1000>
+		<Key Tab>
+		<Wait 1000>
+		<Text DAPASSWOID>
+		<Key Enter>
+		<Wait 1000>
+		<Key Enter>
+		<Wait 7000>
+		<Key Enter>
+		<Wait 2000>
+		<RenameWin "Client4" "Trader">
+	<endif>
+	
